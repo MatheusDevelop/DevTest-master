@@ -1,0 +1,22 @@
+<p style="margin-left:20px">Engineer: {{engineer.name}}</p>
+
+<h2>{{engineer.name}} Jobs list</h2>
+<table spacing="0">
+  <thead>
+    <tr>
+      <th>Job id</th>
+      <th>When</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let job of engineer.jobs">
+      <td>{{job.jobId}}</td>
+      <td>{{job.when | date:'shortDate'}}</td>
+      <td>
+        <a [routerLink]="['/job', job.jobId]">Open</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a [routerLink]="['/engineers']" style="margin-left:20px">Back</a>

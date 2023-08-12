@@ -1,0 +1,27 @@
+<h2>New engineer form</h2>
+<form #engineerForm="ngForm" (ngSubmit)="createEngineer(engineerForm)">
+  <label for="engineer">Engineer</label><br/>
+  <input type="text" name="name" ngModel required #when="ngModel" [(ngModel)]="newEngineer.name" />
+  <br/>
+  <button type="submit" [disabled]="engineerForm.invalid">Add Engineer</button>
+</form>
+
+<h2>Engineers list</h2>
+<table spacing="0">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let engineer of engineers">
+      <td>{{engineer.engineerId}}</td>
+      <td>{{engineer.name}}</td>
+      <td>
+        <a [routerLink]="['/engineer', engineer.engineerId]">Open</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
